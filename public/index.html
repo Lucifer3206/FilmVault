@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FilmVault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>🎬 FilmVault</h2>
+
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">Watchlist</a>
+        </div>
+    </nav>
+
+    <main>
+
+    <h1>My Movie Collection</h1>
+    <p>Track the movies and shows you've watched.</p>
+    <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search movies..."
+>
+<div class="add-movie">
+
+    <input
+        type="text"
+        id="movieName"
+        placeholder="Movie name"
+    >
+
+    <input
+        type="text"
+        id="movieGenre"
+        placeholder="Genre"
+    >
+
+    <input
+        type="number"
+        id="movieRating"
+        placeholder="Rating"
+        min="0"
+        max="5"
+        step="0.1"
+    >
+
+    <button id="addMovieBtn">Add Movie</button>
+
+</div>
+
+    <div class="movie-container">
+
+        <!-- Movie 1 -->
+        <div class="movie-card">
+
+            <img
+                class="poster"
+                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
+                alt="Interstellar"
+            >
+
+            <h2>Interstellar</h2>
+
+            <p>Sci-Fi • Drama</p>
+
+            <p>⭐ 4.8 / 5</p>
+
+            <button id="watchedBtn">Watched</button>
+
+        </div>
+
+
+        <!-- Movie 2 -->
+        <div class="movie-card">
+
+            <img
+                class="poster"
+                src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c"
+                alt="Movie"
+            >
+
+            <h2>Inception</h2>
+
+            <p>Sci-Fi • Thriller</p>
+
+            <p>⭐ 4.7 / 5</p>
+
+           <button id="watchedBtn">Watched</button>
+        </div>
+
+
+        <!-- Movie 3 -->
+        <div class="movie-card">
+
+            <img
+                class="poster"
+                src="https://images.unsplash.com/photo-1485846234645-a62644f84728"
+                alt="Movie"
+            >
+
+            <h2>The Dark Knight</h2>
+
+            <p>Action • Crime</p>
+
+            <p>⭐ 4.9 / 5</p>
+
+            <button id="watchlistBtn">Watchlist</button>
+
+        </div>
+
+    </div>
+
+</main>
+<script src="script.js"></script>
+</body>
+
+</html>
