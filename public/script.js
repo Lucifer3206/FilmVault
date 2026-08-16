@@ -36,8 +36,9 @@ searchInput.addEventListener("input", function () {
     clearTimeout(searchTimeout);
 
     if (!searchText) {
-        return;
-    }
+    loadMovies();
+    return;
+}
 
     searchTimeout = setTimeout(function () {
 
@@ -72,6 +73,7 @@ searchInput.addEventListener("input", function () {
     }, 400);
 
 });
+
 // ==============================
 // DISPLAY TMDB MOVIES
 // ==============================
@@ -79,7 +81,7 @@ searchInput.addEventListener("input", function () {
 function displayTMDBMovies(movies) {
 
     const movieContainer =
-        document.querySelector(".movie-container");
+    document.getElementById("movieContainer");
 
     if (!movieContainer) {
         return;
@@ -264,7 +266,7 @@ function displayTMDBMovies(movies) {
 
             }
         );
-
+document.getElementById("movieContainer")
 
         // ==========================================
         // CARD CLICK
@@ -463,41 +465,9 @@ function addTMDBToWatchlist(
         // VIEW DETAILS
         // =============================================
 
-        const detailsButton =
-            movieCard.querySelector(".details-button");
-
-        detailsButton.addEventListener(
-            "click",
-            function () {
-
-                showMovieDetails(movie);
-
-            }
-        );
-
-
         // =============================================
         // WATCHLIST
         // =============================================
-
-        const watchlistButton =
-            movieCard.querySelector(".watchlist-button");
-
-        watchlistButton.addEventListener(
-            "click",
-            function () {
-
-                addTMDBToWatchlist(
-                    movie,
-                    watchlistButton
-                );
-
-            }
-        );
-
-    });
-
-}
 
 // =====================================================
 // ADD MOVIE
