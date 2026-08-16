@@ -17,7 +17,7 @@ db.prepare(`
         rating REAL NOT NULL
     )
 `).run();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Movie data
