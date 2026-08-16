@@ -1292,61 +1292,6 @@ if (heroWatchlistBtn) {
 }
 
 // =====================================================
-// SEARCH BUTTON
-// =====================================================
-
-const searchButton =
-    document.querySelector(".search-container button");
-
-
-if (searchButton) {
-
-    searchButton.addEventListener("click", function () {
-
-        const searchText =
-            searchInput.value.toLowerCase().trim();
-
-        const movieCards =
-            document.querySelectorAll(
-                "#movieContainer .movie-card"
-            );
-
-
-        movieCards.forEach(function (card) {
-
-            const movieName =
-                card.querySelector("h3")?.innerText.toLowerCase() || "";
-
-            const movieGenre =
-                card.querySelector(".movie-genre")?.innerText.toLowerCase() || "";
-
-
-            if (
-                movieName.includes(searchText) ||
-                movieGenre.includes(searchText)
-            ) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-
-        document
-            .getElementById("movies")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-    });
-
-}
-// =====================================================
 // ESCAPE HTML
 // Prevent HTML injection inside movie cards
 // =====================================================
