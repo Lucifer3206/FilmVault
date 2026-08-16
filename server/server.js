@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 3000;
 // Home route
 
 app.get("/", function(req, res) {
-    res.send("FilmVault Backend is running! 🎬");
+    res.send("VOID Backend is running! 🎬");
 });
 
 

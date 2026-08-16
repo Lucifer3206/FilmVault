@@ -1,111 +1,633 @@
+/* =====================================================
+   VOID — GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    background: #080808;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: #1c1c1c;
-}
-
-nav h2 {
-    margin: 0;
-}
-
-nav a {
-    color: white;
+a {
+    color: inherit;
     text-decoration: none;
-    margin-left: 25px;
 }
 
-nav a:hover {
-    color: #aaa;
+button,
+input {
+    font: inherit;
 }
 
-main {
-    text-align: center;
-    padding: 60px 20px;
-}
 
-main h1 {
-    font-size: 45px;
-}
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-main p {
-    font-size: 18px;
-}
-.movie-card {
-    width: 250px;
-    padding: 15px;
-    background-color: #1c1c1c;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.2s;
-}
-.movie-card:hover {
-    transform: translateY(-5px);
-}
-.movie-container {
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72px;
+
+    padding: 0 6%;
+
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 8, 8, 0.75);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    z-index: 1000;
 }
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 6px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #999;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-actions button {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.nav-actions button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 720px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 8% 80px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            #080808 0%,
+            rgba(8, 8, 8, 0.85) 35%,
+            rgba(8, 8, 8, 0.35) 70%,
+            #080808 100%
+        ),
+        linear-gradient(
+            0deg,
+            #080808 0%,
+            transparent 30%
+        ),
+        url("https://images.unsplash.com/photo-1440404653325-ab127d49abc1")
+        center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-label,
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #888;
+}
+
+.hero h1 {
+    margin: 15px 0;
+
+    font-size: clamp(55px, 8vw, 110px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+}
+
+.hero-meta {
+    display: flex;
+    gap: 12px;
+
+    margin: 25px 0;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.hero-content > p {
+    max-width: 520px;
+
+    color: #aaa;
+
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 13px 22px;
+
+    border-radius: 6px;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background: #ffffff;
+    color: #000000;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    background: #dddddd;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-section {
+    padding: 40px 8%;
+}
+
+.search-container {
+    max-width: 850px;
+
+    margin: auto;
+
+    display: flex;
+
+    background: #111;
+
+    border: 1px solid #222;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.search-container input {
+    flex: 1;
+
+    padding: 18px 20px;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+}
+
+.search-container input::placeholder {
+    color: #666;
+}
+
+.search-container button {
+    padding: 0 25px;
+
+    border: none;
+
+    background: white;
+
+    color: black;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.movie-section,
+.add-movie-section {
+    padding: 70px 8%;
+}
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    margin-top: 6px;
+
+    font-size: 32px;
+
+    letter-spacing: -1px;
+}
+
+.section-header > a {
+    color: #777;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.section-header > a:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   MOVIE CONTAINER
+===================================================== */
+
+.movie-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   MOVIE GRID
+===================================================== */
+
+.movie-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(200px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   MOVIE CARD
+===================================================== */
+
+.movie-card {
+    background: #111;
+
+    border: 1px solid #1d1d1d;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #333;
+}
+
 .poster {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+
+    height: 350px;
+
     display: block;
-    border-radius: 8px;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
 }
-.movie-card h2 {
+
+.movie-card:hover .poster {
+    transform: scale(1.04);
+}
+
+.movie-info {
+    padding: 17px;
+}
+
+.movie-info h3 {
+    font-size: 18px;
+
     margin-bottom: 5px;
 }
 
-.movie-card p {
+.movie-info p {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.movie-info span {
     color: #aaa;
+
+    font-size: 13px;
 }
 
-.movie-card button {
-    padding: 10px 20px;
-    border: none;
+
+/* =====================================================
+   ADD MOVIE
+===================================================== */
+
+.add-movie {
+    max-width: 1000px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1.5fr
+        100px
+        auto;
+
+    gap: 12px;
+
+    margin: auto;
+}
+
+.add-movie input {
+    padding: 15px;
+
+    background: #111;
+
+    border: 1px solid #222;
+
     border-radius: 6px;
-    cursor: pointer;
+
+    color: white;
+
+    outline: none;
 }
-#searchInput {
-    width: 300px;
-    padding: 12px;
-    margin: 20px;
+
+.add-movie input:focus {
+    border-color: #555;
+}
+
+.add-movie button {
+    padding: 15px 20px;
+
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+
+    border-radius: 6px;
+
+    background: white;
+
+    color: black;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
 }
-@media (max-width: 768px) {
 
-    nav {
-        padding: 15px 20px;
+.add-movie button:hover {
+    background: #ddd;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    margin-top: 80px;
+
+    padding: 60px 8%;
+
+    border-top: 1px solid #181818;
+
+    text-align: center;
+
+    color: #666;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+
+    color: white;
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    letter-spacing: 6px;
+}
+
+.footer p {
+    font-size: 13px;
+}
+
+.copyright {
+    margin-top: 20px;
+
+    color: #444;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
     }
 
-    nav a {
-        margin-left: 10px;
-    }
+    .hero {
+        min-height: 650px;
 
-    main h1 {
-        font-size: 32px;
-    }
-
-    #searchInput {
-        width: 80%;
+        padding-left: 6%;
+        padding-right: 6%;
     }
 
     .movie-container {
+        grid-template-columns: 1fr;
+    }
+
+    .add-movie {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero-meta {
+        flex-wrap: wrap;
+    }
+
+    .hero-buttons {
         flex-direction: column;
-        align-items: center;
+
+        max-width: 200px;
+    }
+
+    .movie-section,
+    .add-movie-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .poster {
+        height: 300px;
+    }
+
+}
+.movie-poster-placeholder {
+    width: 100%;
+    height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #222 0%,
+            #0d0d0d 70%
+        );
+
+    font-size: 45px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.movie-actions button {
+    padding: 8px 10px;
+
+    border-radius: 5px;
+
+    border: 1px solid #292929;
+
+    background: #181818;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    transition: 0.25s ease;
+}
+
+.movie-actions button:hover {
+    background: #252525;
+    color: white;
+}
+
+.delete-button:hover {
+    border-color: #555;
+}
+
+@media (max-width: 600px) {
+
+    .movie-poster-placeholder {
+        height: 300px;
     }
 
 }

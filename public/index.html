@@ -1,123 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>FilmVault</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VOID — Discover Your Next Story</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav>
-        <h2>🎬 FilmVault</h2>
+    <!-- ================= NAVBAR ================= -->
 
-        <div>
-            <a href="#">Home</a>
-            <a href="#">Movies</a>
-            <a href="#">Watchlist</a>
+    <header class="navbar">
+
+        <div class="logo">
+            VOID
         </div>
-    </nav>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#watchlist">Watchlist</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="search-toggle">
+                🔍
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
 
     <main>
 
-    <h1>My Movie Collection</h1>
-    <p>Track the movies and shows you've watched.</p>
-    <input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Search movies..."
->
-<div class="add-movie">
+        <section class="hero" id="home">
 
-    <input
-        type="text"
-        id="movieName"
-        placeholder="Movie name"
-    >
+            <div class="hero-content">
 
-    <input
-        type="text"
-        id="movieGenre"
-        placeholder="Genre"
-    >
+                <span class="hero-label">
+                    FEATURED FILM
+                </span>
 
-    <input
-        type="number"
-        id="movieRating"
-        placeholder="Rating"
-        min="0"
-        max="5"
-        step="0.1"
-    >
+                <h1>
+                    INTERSTELLAR
+                </h1>
 
-    <button id="addMovieBtn">Add Movie</button>
+                <div class="hero-meta">
 
-</div>
+                    <span>2014</span>
+                    <span>•</span>
+                    <span>Sci-Fi</span>
+                    <span>•</span>
+                    <span>Drama</span>
+                    <span>•</span>
+                    <span>⭐ 4.8</span>
 
-    <div class="movie-container">
+                </div>
 
-        <!-- Movie 1 -->
-        <div class="movie-card">
+                <p>
+                    A team of explorers travel through a wormhole in space
+                    in an attempt to ensure humanity's survival.
+                </p>
 
-            <img
-                class="poster"
-                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
-                alt="Interstellar"
+                <div class="hero-buttons">
+
+                    <button class="primary-btn">
+                        ▶ Watch Now
+                    </button>
+
+                    <button class="secondary-btn">
+                        + Watchlist
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search movies, genres, directors..."
+                >
+
+                <button>
+                    Search
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TRENDING ================= -->
+
+        <section class="movie-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">
+                        DISCOVER
+                    </span>
+
+                    <h2>
+                        Trending Now
+                    </h2>
+                </div>
+
+                <a href="#">
+                    View All →
+                </a>
+
+            </div>
+
+
+            <div class="movie-container">
+
+                <!-- Movie Card -->
+
+                <article class="movie-card">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
+                        alt="Interstellar"
+                    >
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Interstellar
+                        </h3>
+
+                        <p>
+                            Sci-Fi • Drama
+                        </p>
+
+                        <span>
+                            ⭐ 4.8
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="movie-card">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c"
+                        alt="Inception"
+                    >
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Inception
+                        </h3>
+
+                        <p>
+                            Sci-Fi • Thriller
+                        </p>
+
+                        <span>
+                            ⭐ 4.7
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="movie-card">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1485846234645-a62644f84728"
+                        alt="The Dark Knight"
+                    >
+
+                    <div class="movie-info">
+
+                        <h3>
+                            The Dark Knight
+                        </h3>
+
+                        <p>
+                            Action • Crime
+                        </p>
+
+                        <span>
+                            ⭐ 4.9
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MOVIES ================= -->
+
+        <section
+            class="movie-section"
+            id="movies"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        LIBRARY
+                    </span>
+
+                    <h2>
+                        Explore Movies
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="movie-grid"
+                id="movieContainer"
             >
 
-            <h2>Interstellar</h2>
+                <!-- Movies will be loaded here -->
 
-            <p>Sci-Fi • Drama</p>
+            </div>
 
-            <p>⭐ 4.8 / 5</p>
-
-            <button id="watchedBtn">Watched</button>
-
-        </div>
+        </section>
 
 
-        <!-- Movie 2 -->
-        <div class="movie-card">
+        <!-- ================= ADD MOVIE ================= -->
 
-            <img
-                class="poster"
-                src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c"
-                alt="Movie"
+        <section class="add-movie-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        YOUR LIBRARY
+                    </span>
+
+                    <h2>
+                        Add a Movie
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="add-movie">
+
+                <input
+                    type="text"
+                    id="movieName"
+                    placeholder="Movie name"
+                >
+
+                <input
+                    type="text"
+                    id="movieGenre"
+                    placeholder="Genre"
+                >
+
+                <input
+                    type="number"
+                    id="movieRating"
+                    placeholder="Rating"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                >
+
+                <button id="addMovieBtn">
+                    + Add Movie
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WATCHLIST ================= -->
+
+        <section
+            class="movie-section"
+            id="watchlist"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        SAVED
+                    </span>
+
+                    <h2>
+                        My Watchlist
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="movie-grid"
+                id="watchlistContainer"
             >
 
-            <h2>Inception</h2>
+                <!-- Watchlist movies -->
 
-            <p>Sci-Fi • Thriller</p>
+            </div>
 
-            <p>⭐ 4.7 / 5</p>
+        </section>
 
-           <button id="watchedBtn">Watched</button>
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            VOID
         </div>
 
+        <p>
+            Stories live in the dark.
+        </p>
 
-        <!-- Movie 3 -->
-        <div class="movie-card">
+        <p class="copyright">
+            © 2026 VOID. All rights reserved.
+        </p>
 
-            <img
-                class="poster"
-                src="https://images.unsplash.com/photo-1485846234645-a62644f84728"
-                alt="Movie"
-            >
+    </footer>
 
-            <h2>The Dark Knight</h2>
 
-            <p>Action • Crime</p>
+    <script src="script.js"></script>
 
-            <p>⭐ 4.9 / 5</p>
-
-            <button id="watchlistBtn">Watchlist</button>
-
-        </div>
-
-    </div>
-
-</main>
-<script src="script.js"></script>
 </body>
 
 </html>
