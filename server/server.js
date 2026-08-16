@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const Database = require("better-sqlite3");
 const path = require("path");
@@ -104,8 +105,104 @@ app.put("/api/movies/:id", function(req, res) {
     res.json(updatedMovie);
 
 });
+// =====================================================
+// TMDB SEARCH
+// =====================================================
 
+app.get("/api/tmdb/search", async function (req, res) {
 
+    try {
+
+        const query = req.query.query;
+
+        if (!query) {
+            return res.status(400).json({
+                error: "Search query is required."
+            });
+        }
+
+        const response = await fetch(
+            `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`,
+            {
+                method: "GET",
+
+                headers: {
+                    accept: "application/json",
+                    Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`
+                }
+            }
+        );
+
+        if (!response.ok) {
+
+            const errorText = await response.text();
+
+            console.error(
+                "TMDB error:",
+                response.status,
+                errorText
+            );
+
+            return res.status(response.status).json({
+                error: "TMDB request failed."
+            });
+        }
+
+        const data = await response.json();
+
+        res.json(data);
+
+    } catch (error) {
+
+        console.error(
+            "TMDB search error:",
+            error
+        );
+
+        res.status(500).json({
+            error: "Unable to search TMDB."
+        });
+
+    }
+
+});
+app.get("/api/tmdb/trending", async function(req, res) {
+
+    try {
+
+        const response = await fetch(
+            "https://api.themoviedb.org/3/trending/movie/week",
+            {
+                headers: {
+                    Authorization:
+                        `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
+                    accept: "application/json"
+                }
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("TMDB request failed");
+        }
+
+        const data = await response.json();
+
+        res.json(data);
+
+    } catch (error) {
+
+        console.error(
+            "TMDB trending error:",
+            error
+        );
+
+        res.status(500).json({
+            error: "Failed to load trending movies"
+        });
+
+    }
+
+});
 app.listen(PORT, function() {
     console.log(`Server running at http://localhost:${PORT}`);
 });
